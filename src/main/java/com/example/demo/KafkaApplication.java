@@ -25,11 +25,10 @@ public class KafkaApplication {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    //Main class for this Spring application.
     public static void main(String[] args) {
         SpringApplication.run(KafkaApplication.class, args);
     }
-
-    @Override
     public void run(String... strings){
         kafkaTemplate.send(topicName, "Hello Dennis");
         LOG.info("Received Message to topic: "+topicName);
